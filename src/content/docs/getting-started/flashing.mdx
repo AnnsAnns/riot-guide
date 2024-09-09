@@ -9,10 +9,11 @@ After all of the previous sections are completed, we can finally flash some
 real hardware. In this case, we use an `esp32-mh-et-live-minikit` development
 board. The guide should mostly apply to all other boards as well.
 
-> [!NOTE]
-> Some boards require extra steps to be flashed, such as pressing a button
-> to enter a bootloader or attaching an external programmer. Refer to the
-> documentation of the board to check if extra steps are required.
+<Aside>
+    Some boards require extra steps to be flashed, such as pressing a button
+    to enter a bootloader or attaching an external programmer. Refer to the
+    documentation of the board to check if extra steps are required.
+</Aside>
 
 This assumes that the USB UART bridge of the ESP32 development board has
 been attached to WSL and VS Code has been launched from within WSL by running
@@ -28,19 +29,21 @@ been attached to WSL and VS Code has been launched from within WSL by running
 6. Run `make BOARD=esp32-mh-et-live-minikit compile-commands`
     - You can replace `esp32-mh-et-live-minikit` with the name of any other supported board
 
-> [!NOTE]
-> Did you notice that IntelliSense did not find headers in `main.c` when you
-> opened it? This should be fixed after the command in 6 has completed.
+<Aside>
+    Did you notice that IntelliSense did not find headers in `main.c` when you
+    opened it? This should be fixed after the command in 6 has completed.
+</Aside>
 
 ![Flashing from VS Code](img/08-Flash_Real_Hardware-04.png)
 
 1. Now run `make BOARD=esp32-mh-et-live-minikit BUILD_IN_DOCKER=1 flash term`
 
-> [!NOTE]
-> Tired of typing `BOARD=<NAME_OF_THE_BOARD>` and `BUILD_IN_DOCKER=1`? You can
-> add those to the `Makefile` of your app or run
-> `export BOARD=BUILD_IN_DOCKER=1` in the shell. The `export` will not persist
-> needs to be repeated for every new terminal window.
+<Aside>
+    Tired of typing `BOARD=<NAME_OF_THE_BOARD>` and `BUILD_IN_DOCKER=1`? You can
+    add those to the `Makefile` of your app or run
+    `export BOARD=BUILD_IN_DOCKER=1` in the shell. The `export` will not persist
+    needs to be repeated for every new terminal window.
+</Aside>
 
 ![Pulling docker image](img/08-Flash_Real_Hardware-05.png)
 

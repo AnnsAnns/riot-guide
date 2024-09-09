@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { rehypeGithubAlerts } from 'rehype-github-alerts';
 import starlightImageZoom from 'starlight-image-zoom';
 
 // https://astro.build/config
@@ -9,9 +8,6 @@ export default defineConfig({
     base: '/RIOT',
     trailingSlash: 'always',
     site: 'https://annsanns.github.io',
-    markdown: {
-        rehypePlugins: [rehypeGithubAlerts],
-    },
 	integrations: [
 		starlight({
 			title: 'Riot Guides',

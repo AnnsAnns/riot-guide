@@ -79,9 +79,10 @@ Depending on the operation distribution you are using, the installation of the r
 
 ## Cloning the RIOT Repository and First Steps in the Terminal
 
-> [!NOTE]
-> Even if you subsequently work only via VS Code, do **NOT** skip this step.
-> You will still need a "clone" of the RIOT Repository to work with.
+<Aside>
+Even if you subsequently work only via VS Code, do **NOT** skip this step.
+You will still need a "clone" of the RIOT Repository to work with.
+</Aside>
 
 ![Cloning of the RIOT Repo in the Ubuntu terminal](img/05-First_Steps-00.png)
 
@@ -93,10 +94,11 @@ Depending on the operation distribution you are using, the installation of the r
 - Type `make` and confirm with the return key to build the app for the board
   `native`
 
-> [!NOTE]
-> The `native` board is a virtual board that will run an RIOT application as
-> regular Linux process. This can be useful for testing or during development.
-> The app should behave the same when run on real hardware.
+<Aside>
+The `native` board is a virtual board that will run an RIOT application as
+regular Linux process. This can be useful for testing or during development.
+The app should behave the same when run on real hardware.
+</Aside>
 
 ![The `hello-world` app running on the virtual `native` board](img/05-First_Steps-01.png)
 
@@ -140,38 +142,41 @@ Depending on the operation distribution you are using, the installation of the r
 
 1. Click on the "Install" button when prompted to install the C/C++ Extension.
 
-> [!NOTE]
-> You can also install that extension via the extension marketplace if that pop up does not show up.
+<Aside>
+You can also install that extension via the extension marketplace if that pop up does not show up.
+</Aside>
 
+<Aside type="danger">
 ![VS Code asking to configure RIOT as CMake project](img/06-Use_VS_Code-04.png)
 
-> [!WARNING]
-> Do **NOT** configure RIOT as CMake project. VS Code will incorrectly detect
-> RIOT as CMake project, because it contains external packages that indeed are
-> using CMake.
+Do **NOT** configure RIOT as CMake project. VS Code will incorrectly detect
+RIOT as CMake project, because it contains external packages that indeed are
+using CMake.
 
 1. Click on "Not now" to not configure RIOT as CMake project
 2. Click on "Never" to never ask again whether RIOT should be configured as
    CMake project (not shown in screenshot)
+</Aside>
 
 ![IntelliSense showing that `RIOT_BOARD` is `"native"`](img/06-Use_VS_Code-05.png)
 
 - Confirm that when hovering over `RIOT_BOARD` in the source code, IntelliSense
   shows that it expands to `"native"`.
 
-> [!NOTE]
-> IntelliSense depends on information how to compile the source code to work
-> correctly, which is provided in the file `compile_commands.json`. You can
-> regenerate this file by running `make compile-commands` in the app you are
-> working on.
+<Aside>
+IntelliSense depends on information how to compile the source code to work
+correctly, which is provided in the file `compile_commands.json`. You can
+regenerate this file by running `make compile-commands` in the app you are
+working on.
+</Aside>
 
-> [!WARNING]
-> Re-run `make compile-commands` when:
-> 1. You create, delete or rename source files
-> 2. You change the set of modules or packages used
-> 3. You have updated the RIOT repository
-> 4. You are switching the board to compile for
-
+<Aside type="caution">
+Re-run `make compile-commands` when:
+1. You create, delete or rename source files
+2. You change the set of modules or packages used
+3. You have updated the RIOT repository
+4. You are switching the board to compile for
+</Aside>
 
 ![Compiling via the Terminal in VS Code](img/06-Use_VS_Code-06.png)
 
