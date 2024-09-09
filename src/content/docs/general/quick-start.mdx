@@ -1,0 +1,60 @@
+---
+title: Quick Start
+description: Get started with RIOT in a few minutes
+---
+
+> [!IMPORTANT]
+> If you are new to RIOT, you might want to start with the [Getting Started](../getting-started/getting_started) guide.
+> It provides a more detailed introduction to RIOT and its features.
+
+You can run RIOT on most IoT devices, on open-access testbed hardware (e.g.
+IoT-lab), and also directly as a process on your Linux or FreeBSD machine (we
+call this the `native` port). Try it right now in your terminal window:
+
+1. Clone the project (assumption: git is pre-installed)
+
+```shell
+git clone https://github.com/RIOT-OS/RIOT.git
+```
+
+2. Move to the RIOT directory:
+
+```shell
+cd RIOT
+```
+
+3. Checkout the latest release, you can find them under the [releases
+   page](https://github.com/RIOT-OS/RIOT/tags):
+
+```shell
+git checkout <LATEST_RELEASE>
+```
+
+4. Create virtual Ethernet interfaces to connect multiple RIOT instances
+
+```shell
+sudo ./dist/tools/tapsetup/tapsetup
+```
+
+5. Go into the default example and build it:
+
+```shell
+cd examples/default/
+make all
+```
+
+6. Launch the RIOT shell in a terminal:
+
+```shell
+make term
+```
+
+... and you are in the RIOT shell!
+Type `help` to discover available commands. For further information see the
+[README of the `default` example](https://github.com/RIOT-OS/RIOT/tree/master/examples/default).
+
+To use RIOT directly on your embedded platform, and for more hands-on details
+with RIOT, see @ref getting-started.
+
+Before that, skimming through the next section is recommended (but not
+mandatory).
