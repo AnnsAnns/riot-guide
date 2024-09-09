@@ -10,9 +10,11 @@ export default defineConfig({
     site: 'https://annsanns.github.io',
 	integrations: [
 		starlight({
-			title: 'Riot Guides',
+			title: 'Riot Documentation',
 			social: {
 				github: 'https://github.com/riot-os/riot',
+                mastodon: 'https://fosstodon.org/@RIOT_OS',
+                matrix: 'https://matrix.to/#/#riot-os:matrix.org',
 			},
 			sidebar: [
                 {
@@ -41,6 +43,10 @@ export default defineConfig({
             customCss: [
                 './src/styles/github_alerts.css',
             ],
+            logo: {
+                src: './src/assets/riot-logo.svg',
+                replacesTitle: true,
+            },
             plugins: [starlightImageZoom()],
             editLink: { baseUrl: 'https://github.com/AnnsAnns/RIOT/tree/starlight/doc/starlight-docs' },
 		}),
