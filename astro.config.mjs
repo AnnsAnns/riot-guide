@@ -33,7 +33,12 @@ export default defineConfig({
                         { slug: "getting-started/install-wsl" },
                         { slug: "getting-started/installing"},
                         { slug: "getting-started/flashing"},
+                        { slug: "getting-started/building_example"}
                     ]
+                },
+                {
+                    label: "Platforms, Build Systems, and Tools",
+                    autogenerate: { directory: 'platforms' },
                 },
 				{
 					label: 'Guides',

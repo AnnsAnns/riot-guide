@@ -3,6 +3,10 @@ title: Flashing a RIOT Application
 description: Flash a RIOT application to a real hardware device
 ---
 
+import Contact from '../../../components/contact.astro';
+
+<Contact />
+
 After all of the previous sections are completed, we can finally flash some
 real hardware. In this case, we use an `esp32-mh-et-live-minikit` development
 board. The guide should mostly apply to all other boards as well.
@@ -43,6 +47,12 @@ been attached to WSL and VS Code has been launched from within WSL by running
     needs to be repeated for every new terminal window.
 :::
 
+:::tip
+Running `BOARD=<INSERT_TARGET_BOARD_HERE> make info-programmers-supported` in your
+         application folder lists the programmers supported by RIOT for the given board.
+:::
+
+
 ![Pulling docker image](img/08-Flash_Real_Hardware-05.png)
 
 When compiling with `BUILD_IN_DOCKER=1`, the toolchains distributed in the
@@ -76,6 +86,11 @@ After building and flashing the firmware has succeeded, a shell will open.
 3. You can drop out of the RIOT serial by pressing `Ctrl` + `C` and return
    to the Linux shell.
 
+:::tip[Flashing under Windows]
+It is also possible to install a native Windows flash application and invoke that from within WSL.
+However, the setup is too board specific to be covered here. Please refer to the documentation of the board you are using.
+:::
+
 :::caution[Known Issues under WSL]
     The Linux Kernel in WSL currently has
     [`CONFIG_USB_HIDDEV` disabled][wsl-hid-issue]. Hence, programmers using HID
@@ -85,11 +100,6 @@ After building and flashing the firmware has succeeded, a shell will open.
     - Atmel/Microchip eDBG
     - Atmel/Microchip ICE
     - Any ARM CMSIS DAP compatible programmers
-
-    :::note
-        It is possible to install a native Windows flash application and invoke that
-        from within WSL.
-    :::
 
     The (non-conclusive) list of programmers that work with WSL out of the box is:
 

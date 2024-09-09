@@ -1,0 +1,76 @@
+---
+title: Supported Architectures
+description: This page lists the architectures supported by RIOT OS and the required software packages for each architecture.
+---
+
+import Contact from '../../../components/contact.astro';
+
+<Contact />
+
+RIOT supports a wide range of architectures. This page lists the architectures supported by RIOT OS and the required software packages for each architecture.
+
+### Architecture: ARM7 and ARM Cortex M*
+
+* GCC, binutils, and newlib for `arm-none-eabi`
+    * Alternatively: Install docker and export `BUILD_IN_DOCKER=1`
+* OpenOCD for debugging/flashing (most boards)
+    * Some boards use UF2 based bootloaders, which require auto-mounting to work with `make flash`
+    * Some boards default to using J-Link for flashing/debugging. Either install that or export
+      `PROGRAMMER=openocd` to just use OpenOCD instead
+    * installation instructions can be found [here](https://github.com/RIOT-OS/RIOT/wiki/OpenOCD)
+* Optional: picolibc for `arm-none-eabi` to link against picolibc instead of newlib
+* Optional: clang to build with `TOOLCHAIN=llvm`
+* Optional: GDB multiarch for debugging
+    * If no multiarch package is available, use GDB for `arm-none-eabi` instead
+
+### Architecture: Xtensa
+
+#### ESP32
+
+* [Toolchain for ESP32](https://doc.riot-os.org/group__cpu__esp32.html#esp32_toolchain)
+* [esptool](https://github.com/espressif/esptool) for flashing
+* Optional: OpenOCD and GDB (multiarch version) for [debugging via JTAG](https://doc.riot-os.org/group__cpu__esp32.html#esp32_jtag_debugging)
+
+#### ESP8266
+
+* [Toolchain for ESP8266](https://doc.riot-os.org/group__cpu__esp8266.html#esp8266_toolchain)
+* [esptool](https://github.com/espressif/esptool) for flashing
+* Optional: GDB (multiarch version) for [debugging via the gdbstub](https://doc.riot-os.org/group__cpu__esp8266.html#esp8266_esp_gdbstub)
+  interface for the ESP8266
+
+### Architecture: AVR
+
+* GCC and binutils for AVR and avrlibc
+    * Alternatively: Install docker and export `BUILD_IN_DOCKER=1`
+* avrdude for flashing
+* Optional: AVaRICE and GDB (multiarch version) for debugging
+
+### Architecture: RISC-V
+
+* GCC, binutils, and newlib for RISC-V (target triple should start with `riscv` and end with
+  `-none-elf` or `-unknown-elf`. Note that most packages are multilib, e.g. `riscv64-unknown-elf`
+  will likely work fine for 32 bit RISC-V boards)
+    * Alternatively: Install docker and export `BUILD_IN_DOCKER=1`
+* OpenOCD for debugging/flashing (some new boards might require a patched version of OpenOCD or a
+  recent build from the git sources)
+* Optional: picolibc to link against picolibc instead of newlib (recommended)
+* Optional: clang to build with `TOOLCHAIN=llvm`
+* Optional: GDB multiarch for debugging
+
+### Architecture: MSP430
+
+* GCC, binutils, and newlib for MSP430
+    * Alternatively: Install docker and export `BUILD_IN_DOCKER=1`
+* [mspdebug](https://github.com/dlbeer/mspdebug) for flashing/debugging
+    * Optional: [MSP Debug Stack](https://www.ti.com/tool/download/MSPDS-OPEN-SOURCE) for additional
+      board support
+* Optional: GDB multiarch for debugging
+
+### Architecture: native
+
+* On 64 bit systems: multilib versions for your host compilers, standard C library, and development
+  headers
+    * Alternatively: Compile with `BUILD_IN_DOCKER=1`. Note that for running the executable you
+      still need a multilib system (or 32 bit Linux) with glibc a standard C library.
+* A C library supporting the deprecated POSIX.1-2001 ucontext library (e.g. glibc, FreeBSD's libc)
+* Optional: GDB for debugging. (Prefer the multiarch version, this will also work for other boards)
