@@ -6,6 +6,9 @@ import starlightImageZoom from 'starlight-image-zoom';
 
 // https://astro.build/config
 export default defineConfig({
+    base: '/RIOT',
+    trailingSlash: 'always',
+    site: 'https://annsanns.github.io',
     markdown: {
         rehypePlugins: [rehypeGithubAlerts],
     },
@@ -42,7 +45,8 @@ export default defineConfig({
             customCss: [
                 './src/styles/github_alerts.css',
             ],
-            plugins: [starlightImageZoom()]
+            plugins: [starlightImageZoom()],
+            editLink: { baseUrl: 'https://github.com/AnnsAnns/RIOT/tree/starlight/doc/starlight-docs' },
 		}),
 	],
 });
