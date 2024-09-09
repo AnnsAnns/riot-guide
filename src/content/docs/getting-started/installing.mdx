@@ -3,13 +3,13 @@ title: Setup Development Environment
 description: Setting up a development environment for RIOT
 ---
 
-import { Tabs, TabItem, Aside, Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-<Aside type="tip"> 
+:::tip
 Do not be afraid to ask for help e.g. in [our forum](https://forum.riot-os.org/) or [Matrix chat](https://matrix.to/#/#riot-os:matrix.org).
 
 We are happy to help you get started with RIOT, and we appreciate your feedback.
-</Aside>
+:::
 
 ### Choosing an Operating System for the Development PC
 
@@ -25,11 +25,11 @@ We are happy to help you get started with RIOT, and we appreciate your feedback.
         Windows is supported through Windows Subsystem for Linux (WSL). 
         The experience is not as streamlined as on Linux, but it is still possible to develop with RIOT.
 
-        <Aside type="caution">
+        :::caution
         Please follow the [installation guide for WSL](/getting-started/install-wsl) to set up your development environment.
 
         Afterwards, you can follow the Ubuntu installation guide. The installation of the required software packages is the same for both Ubuntu and WSL.
-        </Aside>
+        :::
     </TabItem>
     <TabItem label="macOS">
         Native development on macOS machines is not officially supported. 
@@ -42,28 +42,24 @@ We are happy to help you get started with RIOT, and we appreciate your feedback.
 
 ## Installing the required software packages
 
-<Aside>
+:::note
 It is also possible to run RIOT in a Docker container. 
 
 This is especially useful if you want to avoid installing the required software packages on your host system. For more information, see the [Build in Docker](/docs/guides/build-in-docker) guide.
-</Aside>
+:::
 
 Depending on the operation distribution you are using, the installation of the required software packages may vary.
 
 <Tabs syncKey="os">
     <TabItem label="Ubuntu">
-    <Code 
-        code={"sudo apt install make gcc-multilib python3-serial wget unzip git openocd gdb-multiarch esptool podman-docker clangd clang"}
-        lang='bash'
-        title='Ubuntu command to install required packages'
-    />
+    ```\bash title="Ubuntu command to install required packages"
+        sudo apt install make gcc-multilib python3-serial wget unzip git openocd gdb-multiarch esptool podman-docker clangd clang
+    ```
     </TabItem>
     <TabItem label="Arch Linux">
-        <Code 
-        code={"sudo pacman -S make gcc-multilib python-pyserial wget unzip git openocd gdb esptool podman-docker clang"}
-        lang='bash'
-        title='Arch Linux command to install required packages'
-    />
+    ```\bash title="Arch Linux command to install required packages"
+        sudo pacman -S make gcc-multilib python-pyserial wget unzip git openocd gdb esptool podman-docker clang"}
+    ```
     </TabItem>
 </Tabs>
 
@@ -79,10 +75,10 @@ Depending on the operation distribution you are using, the installation of the r
 
 ## Cloning the RIOT Repository and First Steps in the Terminal
 
-<Aside>
+:::note
 Even if you subsequently work only via VS Code, do **NOT** skip this step.
 You will still need a "clone" of the RIOT Repository to work with.
-</Aside>
+:::
 
 ![Cloning of the RIOT Repo in the Ubuntu terminal](img/05-First_Steps-00.png)
 
@@ -94,11 +90,11 @@ You will still need a "clone" of the RIOT Repository to work with.
 - Type `make` and confirm with the return key to build the app for the board
   `native`
 
-<Aside>
+:::note
 The `native` board is a virtual board that will run an RIOT application as
 regular Linux process. This can be useful for testing or during development.
 The app should behave the same when run on real hardware.
-</Aside>
+:::
 
 ![The `hello-world` app running on the virtual `native` board](img/05-First_Steps-01.png)
 
@@ -142,11 +138,11 @@ The app should behave the same when run on real hardware.
 
 1. Click on the "Install" button when prompted to install the C/C++ Extension.
 
-<Aside>
+:::note
 You can also install that extension via the extension marketplace if that pop up does not show up.
-</Aside>
+:::
 
-<Aside type="danger">
+:::danger
 ![VS Code asking to configure RIOT as CMake project](img/06-Use_VS_Code-04.png)
 
 Do **NOT** configure RIOT as CMake project. VS Code will incorrectly detect
@@ -156,27 +152,27 @@ using CMake.
 1. Click on "Not now" to not configure RIOT as CMake project
 2. Click on "Never" to never ask again whether RIOT should be configured as
    CMake project (not shown in screenshot)
-</Aside>
+:::
 
 ![IntelliSense showing that `RIOT_BOARD` is `"native"`](img/06-Use_VS_Code-05.png)
 
 - Confirm that when hovering over `RIOT_BOARD` in the source code, IntelliSense
   shows that it expands to `"native"`.
 
-<Aside>
+:::note
 IntelliSense depends on information how to compile the source code to work
 correctly, which is provided in the file `compile_commands.json`. You can
 regenerate this file by running `make compile-commands` in the app you are
 working on.
-</Aside>
+:::
 
-<Aside type="caution">
+:::caution
 Re-run `make compile-commands` when:
 1. You create, delete or rename source files
 2. You change the set of modules or packages used
 3. You have updated the RIOT repository
 4. You are switching the board to compile for
-</Aside>
+:::
 
 ![Compiling via the Terminal in VS Code](img/06-Use_VS_Code-06.png)
 
