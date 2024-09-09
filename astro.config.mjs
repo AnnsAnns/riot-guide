@@ -21,8 +21,9 @@ export default defineConfig({
                     label: 'General',
                     items: [
                         { label: 'Introduction', slug: 'index'},
-                        { label: 'Structure', slug: 'general/structure'},
+                        { label: "RIOT Vision", slug: "general/vision"},
                         { label: 'Quick Start', slug: 'general/quick-start'},
+                        { label: 'Structure', slug: 'general/structure'},
                     ],
                 },
                 {
