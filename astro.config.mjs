@@ -44,6 +44,10 @@ export default defineConfig({
 					label: 'Guides',
 					autogenerate: { directory: 'guides' },  
 				},
+                {
+                    label: 'API Reference',
+                    autogenerate: { directory: 'apidoc' },
+                }
 			],
             customCss: [
                 './src/styles/github_alerts.css',
