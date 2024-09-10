@@ -1,0 +1,49 @@
+---
+title: api-drivers_gpio_linux.md
+description: api-drivers_gpio_linux.md
+---
+# group `drivers_gpio_linux` 
+
+Implementation of GPIO access from Linux User Space.
+
+This module allows to connect a RIOT application that runs on a Linux host to the physical GPIO pins of that host. To do so, the application has to be compiled for the native board in a Linux environment.
+
+GPIO support is automatically included if either a module requiring the `periph_gpio` feature is added to the application or if it is explicitly listed as `FEATURES_REQUIRED` in the application's Makefile.
+
+At runtime, the process has to be connected to a specific GPIO bank on the host machine. GPIO banks are exposed as `/dev/gpiochipN` character files, where N is the bank ID to which several GPIO pins are connected.
+
+Example:
+
+```cpp
+$ ./riot_native_app --gpio=/dev/gpiochip0 --gpio=/dev/gpiochip1
+```
+
+This will add `/dev/gpiochip0` and `/dev/gpiochip1` as PORT(0) and PORT(1) in RIOT. The first pin can be used with PIN(0,0) as `gpio_t`, the second one on the first port would be PIN(0,1) and so on.
+
+Please refer to your board's documentation for the mapping of the pins.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public int `[`gpio_linux_setup`](#group__drivers__gpio__linux_1gacb1a68ff794c646d20b2f8ded2179598)`(const char * device)`            | register `/dev/gpiochip*` device to be used for GPIO
+`public void `[`gpio_linux_teardown`](#group__drivers__gpio__linux_1ga172548d8781e9ba926f90a748188dfa0)`(void)`            | shutdown GPIO subsystem
+
+## Members
+
+#### `public int `[`gpio_linux_setup`](#group__drivers__gpio__linux_1gacb1a68ff794c646d20b2f8ded2179598)`(const char * device)` 
+
+register `/dev/gpiochip*` device to be used for GPIO
+
+#### Parameters
+* `device` The gpiochip device to open.
+
+#### Returns
+0 on success, error otherwise
+
+#### `public void `[`gpio_linux_teardown`](#group__drivers__gpio__linux_1ga172548d8781e9ba926f90a748188dfa0)`(void)` 
+
+shutdown GPIO subsystem
+
+This closes all GPIO fds.
+
