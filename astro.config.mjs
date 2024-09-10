@@ -45,7 +45,7 @@ export default defineConfig({
 					autogenerate: { directory: 'guides' },  
 				},
                 {
-                    label: 'API Reference',
+                    label: 'API Reference (EXTREMELY EXPERIMENTAL - IGNORE)',
                     autogenerate: { directory: 'apidoc' },
                 }
 			],
