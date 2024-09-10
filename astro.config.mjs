@@ -47,6 +47,7 @@ export default defineConfig({
                 {
                     label: 'API Reference (EXTREMELY EXPERIMENTAL - IGNORE)',
                     autogenerate: { directory: 'apidoc' },
+                    collapsed: true,
                 }
 			],
             customCss: [
