@@ -87,6 +87,12 @@ You will still need a "clone" of the RIOT Repository to work with.
 - Type `make` and confirm with the return key to build the app for the board
   `native`
 
+:::tip
+If you are having issues with missing libraries you can always also 
+use the docker container to build the app. 
+In this example you can type `BUILD_IN_DOCKER=1 make` to build the app in the docker container.
+:::
+
 :::note
 The `native` board is a virtual board that will run an RIOT application as
 regular Linux process. This can be useful for testing or during development.
