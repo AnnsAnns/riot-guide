@@ -44,11 +44,11 @@ export default defineConfig({
 					label: 'Guides',
 					autogenerate: { directory: 'guides' },  
 				},
-                {
-                    label: 'API Reference (EXTREMELY EXPERIMENTAL - IGNORE)',
-                    autogenerate: { directory: 'apidoc' },
-                    collapsed: true,
-                }
+                // {
+                //     label: 'API Reference (EXTREMELY EXPERIMENTAL - IGNORE)',
+                //     autogenerate: { directory: 'apidoc' },
+                //     collapsed: true,
+                // }
 			],
             customCss: [
                 './src/styles/github_alerts.css',
