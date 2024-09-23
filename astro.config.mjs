@@ -21,6 +21,7 @@ export default defineConfig({
                     items: [
                         { label: 'Introduction', slug: 'index'},
                         { label: "RIOT Vision", slug: "general/vision"},
+                        { slug: "general/community_process" },
                     ],
                 },
                 {
@@ -39,14 +40,14 @@ export default defineConfig({
                     label: 'Tutorials',
                     autogenerate: { directory: 'tutorials' },
                 },
-                {
-                    label: "Platforms, Build Systems, and Tools",
-                    autogenerate: { directory: 'platforms' },
-                },
 				{
 					label: 'Guides',
 					autogenerate: { directory: 'guides' },  
 				},
+                {
+                    label: "Platforms, Build Systems, and Tools",
+                    autogenerate: { directory: 'platforms' },
+                },
                 // {
                 //     label: 'API Reference (EXTREMELY EXPERIMENTAL - IGNORE)',
                 //     autogenerate: { directory: 'apidoc' },
