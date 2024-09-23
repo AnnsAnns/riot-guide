@@ -5,7 +5,6 @@ import starlightImageZoom from 'starlight-image-zoom';
 
 // https://astro.build/config
 export default defineConfig({
-    trailingSlash: 'always',
     site: 'https://riot.annsann.eu',
 	integrations: [
 		starlight({
