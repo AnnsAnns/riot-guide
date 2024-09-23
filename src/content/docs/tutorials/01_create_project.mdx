@@ -133,3 +133,33 @@ If everything went well, you should see our hello world program printing "Hello 
 ![The hello world program running in the RIOT shell](img/01_create_project/06_output.png)
 
 Hooraay! You have successfully created a new project with a simple hello world program.
+
+:::tip
+Before you push your project to a git hosting service such as Github, make sure to add a `.gitignore` file to your project to exclude unnecessary files from being tracked by git. 
+
+For this project, a `.gitignore` file could look like this:
+
+```bash title=".gitignore"
+# Ignore build artifacts
+bin/
+*.bin
+*.elf
+*.hex
+*.map
+*.lst
+*.o
+*.d
+*.a
+*.out
+```
+:::
+
+## Conclusion
+
+In this tutorial, we have created a new project with a simple hello world program. We have added RIOT as a submodule to our project, created a hello world program, and built and run the program using the RIOT build system. You can now start building your own applications using RIOT and explore the vast possibilities that RIOT has to offer.
+
+:::note
+The source code for this tutorial can be found [HERE](https://github.com/AnnsAnns/RIOT-Tutorial-Repository/tree/01_hello_world). 
+
+If your project is not working as expected, you can compare your code with the code in this repository to see if you missed anything.
+:::
