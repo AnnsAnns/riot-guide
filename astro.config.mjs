@@ -37,6 +37,10 @@ export default defineConfig({
                     ]
                 },
                 {
+                    label: 'Tutorials',
+                    autogenerate: { directory: 'tutorials' },
+                },
+                {
                     label: "Platforms, Build Systems, and Tools",
                     autogenerate: { directory: 'platforms' },
                 },
