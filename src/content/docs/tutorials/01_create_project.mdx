@@ -1,5 +1,5 @@
 ---
-title: Creating a new project
+title: 01. Creating a Project
 description: This tutorial will guide you through creating a new project with a simple hello world program.
 ---
 
@@ -28,7 +28,7 @@ Next, we initialize a new git repository in this directory. This will allow us t
 git init
 ```
 
-![The output of the git init command](img/01_empty_git.png)
+![The output of the git init command](img/01_create_project/01_empty_git.png)
 
 Congratulations! You have now created a new empty git repository. In the next step, we will add RIOT as a submodule to our project.
 
@@ -42,7 +42,7 @@ To add RIOT as a submodule, we use the following command:
 git submodule add https://github.com/RIOT-OS/RIOT.git
 ```
 
-![Adding the submodule](img/02_riot_submodule.png)
+![Adding the submodule](img/01_create_project/02_riot_submodule.png)
 
 When looking into our directory via `ls`, we can see that a new directory called `RIOT` has been created. This directory contains the RIOT source code. If you were to push your project to a git hosting service, the `RIOT` directory would not be included in the repository. Instead, the repository would contain a reference to the commit of the RIOT repository that you have added as a submodule. This way, the repository stays small and only contains the code that you have written and not the entire RIOT source code.
 
@@ -70,7 +70,7 @@ int main(void)
 }
 ```
 
-![The hello world program in Visual Studio Code](img/03_main_c.png)
+![The hello world program in Visual Studio Code](img/01_create_project/03_main_c.png)
 
 This program will print "Hello World!" to the console after sleeping for 3 seconds. We use the `ztimer_sleep` function to sleep for 3 seconds otherwise we will most likely miss the output before connecting to our device. This function is part of the `ztimer` module, which is part of RIOT. The `puts` function is part of the standard C library and is used to print a string to the console.
 
@@ -102,7 +102,7 @@ QUIET ?= 1
 include $(RIOTBASE)/Makefile.include
 ```
 
-![The Makefile in Visual Studio Code](img/04_makefile.png)
+![The Makefile in Visual Studio Code](img/01_create_project/04_makefile.png)
 
 Congratulations! You have now created a new project with a simple hello world program. In the next step, we will build and run our program just like we did in the "Getting Started" guide.
 
@@ -120,7 +120,7 @@ BUILD_IN_DOCKER=1 make
 The `BUILD_IN_DOCKER=1` flag tells the build system to use the docker image provided by RIOT to build our program. This ensures that we have all the necessary dependencies to build our program. If you have already built RIOT on your system, you can omit this flag and the build system will use the toolchain installed on your system.
 :::
 
-![Building the program](img/05_make.png)
+![Building the program](img/01_create_project/05_make.png)
 
 After building the program, we can run it using the following command to start the RIOT shell:
 
@@ -130,6 +130,6 @@ make term
 
 If everything went well, you should see our hello world program printing "Hello World!" to the console after 3 seconds.
 
-![The hello world program running in the RIOT shell](img/06_output.png)
+![The hello world program running in the RIOT shell](img/01_create_project/06_output.png)
 
 Hooraay! You have successfully created a new project with a simple hello world program.
