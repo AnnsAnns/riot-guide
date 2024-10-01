@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightImageZoom from "starlight-image-zoom";
-import starlightUtils from "@lorenzo_lewis/starlight-utils";
 
 // https://astro.build/config
 export default defineConfig({
@@ -52,81 +51,76 @@ export default defineConfig({
               autogenerate: { directory: "platforms" },
             },
           ],
-        },
-        {
-          label: "API Reference",
-          items: [
-            {
-              label: "RIOT Core",
-              items: [
-                {
-                  label: "Kernel",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__core.html",
-                },
-                {
-                  label: "System",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__sys.html",
-                },
-                {
-                  label: "Networking",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__net.html",
-                },
-              ],
-            },
-            {
-              label: "Utilities",
-              items: [
-                {
-                  label: "Packages",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__pkg.html",
-                },
-                {
-                  label: "Helpers and Utilities",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__utils.html",
-                },
-              ],
-            },
-            {
-              label: "Languages",
-              items: [
-                {
-                  label: "C++",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__cpp.html",
-                },
-                {
-                  label: "Rust",
-                  link: "https://doc.riot-os.org/rustdoc/latest/riot_wrappers/index.html",
-                },
-              ],
-            },
-            {
-              label: "System Specifics",
-              items: [
-                {
-                  label: "Boards",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__boards.html",
-                },
-                {
-                  label: "Bootloaders",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__bootloaders.html",
-                },
-                {
-                  label: "CPU",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__cpu.html",
-                },
-                {
-                  label: "Drivers",
-                  link: "https://doxygenwithpagefind.annsann.eu/group__drivers.html",
-                },
-              ],
-            },
-          ],
-        },
+        // },
         // {
-        //     label: 'API Reference (EXTREMELY EXPERIMENTAL - IGNORE)',
-        //     autogenerate: { directory: 'apidoc' },
-        //     collapsed: true,
-        // }
+        //   label: "API Reference",
+        //   items: [
+        //     {
+        //       label: "RIOT Core",
+        //       items: [
+        //         {
+        //           label: "Kernel",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__core.html",
+        //         },
+        //         {
+        //           label: "System",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__sys.html",
+        //         },
+        //         {
+        //           label: "Networking",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__net.html",
+        //         },
+        //       ],
+        //     },
+        //     {
+        //       label: "Utilities",
+        //       items: [
+        //         {
+        //           label: "Packages",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__pkg.html",
+        //         },
+        //         {
+        //           label: "Helpers and Utilities",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__utils.html",
+        //         },
+        //       ],
+        //     },
+        //     {
+        //       label: "Languages",
+        //       items: [
+        //         {
+        //           label: "C++",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__cpp.html",
+        //         },
+        //         {
+        //           label: "Rust",
+        //           link: "https://doc.riot-os.org/rustdoc/latest/riot_wrappers/index.html",
+        //         },
+        //       ],
+        //     },
+        //     {
+        //       label: "System Specifics",
+        //       items: [
+        //         {
+        //           label: "Boards",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__boards.html",
+        //         },
+        //         {
+        //           label: "Bootloaders",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__bootloaders.html",
+        //         },
+        //         {
+        //           label: "CPU",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__cpu.html",
+        //         },
+        //         {
+        //           label: "Drivers",
+        //           link: "https://doxygenwithpagefind.annsann.eu/group__drivers.html",
+        //         },
+        //       ],
+        //     },
+        //   ],
+        },
       ],
       customCss: [],
       logo: {
@@ -134,12 +128,7 @@ export default defineConfig({
         replacesTitle: true,
       },
       plugins: [
-        starlightImageZoom(),
-        starlightUtils({
-          multiSidebar: {
-            switcherStyle: "horizontalList",
-          },
-        }),
+        starlightImageZoom()
       ],
       editLink: {
         baseUrl:
