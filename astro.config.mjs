@@ -15,15 +15,13 @@ export default defineConfig({
         matrix: "https://matrix.to/#/#riot-os:matrix.org",
       },
       sidebar: [
-        {
-          label: "Guides",
-          items: [
             {
               label: "RIOT in a Nutshell",
               items: [
                 { label: "Introduction", slug: "index" },
                 { label: "RIOT Vision", slug: "general/vision" },
                 { slug: "general/community_process" },
+                { slug: "general/structure"}
               ],
             },
             {
@@ -43,12 +41,12 @@ export default defineConfig({
               autogenerate: { directory: "tutorials" },
             },
             {
-              label: "Guides",
-              autogenerate: { directory: "guides" },
+              label: "Build System",
+              autogenerate: { directory: "build-system" },
             },
             {
-              label: "Platforms, Build Systems, and Tools",
-              autogenerate: { directory: "platforms" },
+              label: "Supported Architectures",
+              autogenerate: { directory: "supported-arch" },
             },
           ],
         // },
@@ -120,8 +118,6 @@ export default defineConfig({
         //       ],
         //     },
         //   ],
-        },
-      ],
       customCss: [],
       logo: {
         src: "./src/assets/riot-logo.svg",
