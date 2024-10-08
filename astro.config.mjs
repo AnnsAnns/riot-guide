@@ -20,8 +20,8 @@ export default defineConfig({
           items: [
             { label: "Introduction", slug: "index" },
             { label: "RIOT Vision", slug: "general/vision" },
-            { slug: "general/community_process" },
-            { slug: "general/structure" },
+            "general/community_process",
+            "general/structure"
           ],
         },
         {
@@ -32,11 +32,10 @@ export default defineConfig({
               items: [
                 // We need to specify the order of the items here
                 // to make it easier to follow the guide
-                { slug: "getting-started/quick-start" },
-                { slug: "getting-started/install-wsl" },
-                { slug: "getting-started/installing" },
-                { slug: "getting-started/flashing" },
-                { slug: "getting-started/building_example" },
+                "getting-started/install-wsl",
+                "getting-started/installing",
+                "getting-started/flashing",
+                "getting-started/building_example",
               ],
             },
             {
