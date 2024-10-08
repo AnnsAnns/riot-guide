@@ -1,5 +1,5 @@
 ---
-title: Using Rust in RIOT
+title: Rust in RIOT
 description: Using Rust in RIOT
 ---
 

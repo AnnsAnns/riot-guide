@@ -15,15 +15,18 @@ export default defineConfig({
         matrix: "https://matrix.to/#/#riot-os:matrix.org",
       },
       sidebar: [
-            {
-              label: "RIOT in a Nutshell",
-              items: [
-                { label: "Introduction", slug: "index" },
-                { label: "RIOT Vision", slug: "general/vision" },
-                { slug: "general/community_process" },
-                { slug: "general/structure"}
-              ],
-            },
+        {
+          label: "RIOT in a Nutshell",
+          items: [
+            { label: "Introduction", slug: "index" },
+            { label: "RIOT Vision", slug: "general/vision" },
+            { slug: "general/community_process" },
+            { slug: "general/structure" },
+          ],
+        },
+        {
+          label: "Tutorials",
+          items: [
             {
               label: "Getting Started",
               items: [
@@ -37,95 +40,99 @@ export default defineConfig({
               ],
             },
             {
-              label: "Tutorials",
-              autogenerate: { directory: "tutorials" },
+              label: "C Basics",
+              autogenerate: { directory: "c_tutorials" },
             },
             {
-              label: "Build System",
-              autogenerate: { directory: "build-system" },
-            },
-            {
-              label: "Supported Architectures",
-              autogenerate: { directory: "supported-arch" },
+              label: "Rust Basics",
+              autogenerate: { directory: "rust_tutorials" },
             },
           ],
-        // },
-        // {
-        //   label: "API Reference",
-        //   items: [
-        //     {
-        //       label: "RIOT Core",
-        //       items: [
-        //         {
-        //           label: "Kernel",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__core.html",
-        //         },
-        //         {
-        //           label: "System",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__sys.html",
-        //         },
-        //         {
-        //           label: "Networking",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__net.html",
-        //         },
-        //       ],
-        //     },
-        //     {
-        //       label: "Utilities",
-        //       items: [
-        //         {
-        //           label: "Packages",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__pkg.html",
-        //         },
-        //         {
-        //           label: "Helpers and Utilities",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__utils.html",
-        //         },
-        //       ],
-        //     },
-        //     {
-        //       label: "Languages",
-        //       items: [
-        //         {
-        //           label: "C++",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__cpp.html",
-        //         },
-        //         {
-        //           label: "Rust",
-        //           link: "https://doc.riot-os.org/rustdoc/latest/riot_wrappers/index.html",
-        //         },
-        //       ],
-        //     },
-        //     {
-        //       label: "System Specifics",
-        //       items: [
-        //         {
-        //           label: "Boards",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__boards.html",
-        //         },
-        //         {
-        //           label: "Bootloaders",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__bootloaders.html",
-        //         },
-        //         {
-        //           label: "CPU",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__cpu.html",
-        //         },
-        //         {
-        //           label: "Drivers",
-        //           link: "https://doxygenwithpagefind.annsann.eu/group__drivers.html",
-        //         },
-        //       ],
-        //     },
-        //   ],
+        },
+        {
+          label: "Supported Architectures",
+          autogenerate: { directory: "supported-arch" },
+        },
+        {
+          label: "Build System",
+          autogenerate: { directory: "build-system" },
+        },
+      ],
+      // },
+      // {
+      //   label: "API Reference",
+      //   items: [
+      //     {
+      //       label: "RIOT Core",
+      //       items: [
+      //         {
+      //           label: "Kernel",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__core.html",
+      //         },
+      //         {
+      //           label: "System",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__sys.html",
+      //         },
+      //         {
+      //           label: "Networking",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__net.html",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       label: "Utilities",
+      //       items: [
+      //         {
+      //           label: "Packages",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__pkg.html",
+      //         },
+      //         {
+      //           label: "Helpers and Utilities",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__utils.html",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       label: "Languages",
+      //       items: [
+      //         {
+      //           label: "C++",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__cpp.html",
+      //         },
+      //         {
+      //           label: "Rust",
+      //           link: "https://doc.riot-os.org/rustdoc/latest/riot_wrappers/index.html",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       label: "System Specifics",
+      //       items: [
+      //         {
+      //           label: "Boards",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__boards.html",
+      //         },
+      //         {
+      //           label: "Bootloaders",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__bootloaders.html",
+      //         },
+      //         {
+      //           label: "CPU",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__cpu.html",
+      //         },
+      //         {
+      //           label: "Drivers",
+      //           link: "https://doxygenwithpagefind.annsann.eu/group__drivers.html",
+      //         },
+      //       ],
+      //     },
+      //   ],
       customCss: [],
       logo: {
         src: "./src/assets/riot-logo.svg",
         replacesTitle: true,
       },
-      plugins: [
-        starlightImageZoom()
-      ],
+      plugins: [starlightImageZoom()],
       editLink: {
         baseUrl:
           "https://github.com/AnnsAnns/RIOT/tree/starlight/doc/starlight-docs",
