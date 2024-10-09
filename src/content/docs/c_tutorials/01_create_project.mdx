@@ -4,55 +4,9 @@ description: This tutorial will guide you through creating a new project with a 
 ---
 
 import Contact from '../../../components/contact.astro';
+import GitSetup from '../../../components/gitsetup.mdx';
 
-:::note
-This tutorial assumes that you have already set up your development environment 
-as described in the [Getting Started](/getting-started/installing/) guide.
-:::
-
-Now that we have played around with the examples and have a basic understanding of how to use RIOT, let's create a new project from scratch. We will create a simple hello world program that will print "Hello World!" to the console.
-
-## Step 1: Create a new project
-
-We start by creating a new git repository for our project. If you have never worked with git before, you can find a good introduction [here](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) or [here](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
-
-Let's create a new directory for our project in which we will store our code. We will call this directory `hello_world`.
-
-```bash
-mkdir hello_world && cd hello_world
-```
-
-Next, we initialize a new git repository in this directory. This will allow us to track changes to our code and collaborate with others and also allows us to easily get RIOT as a submodule.
-
-```bash
-git init
-```
-
-![The output of the git init command](img/01_create_project/01_empty_git.png)
-
-Congratulations! You have now created a new empty git repository. In the next step, we will add RIOT as a submodule to our project.
-
-## Step 2: Add RIOT as a submodule
-
-We want to import RIOT as a submodule to our project. This will allow us to easily update to newer versions of RIOT and also allows us to easily share our project with others on GitHub, Gitlab, or any other git hosting service.
-
-To add RIOT as a submodule, we use the following command:
-
-```bash
-git submodule add https://github.com/RIOT-OS/RIOT.git
-```
-
-![Adding the submodule](img/01_create_project/02_riot_submodule.png)
-
-When looking into our directory via `ls`, we can see that a new directory called `RIOT` has been created. This directory contains the RIOT source code. If you were to push your project to a git hosting service, the `RIOT` directory would not be included in the repository. Instead, the repository would contain a reference to the commit of the RIOT repository that you have added as a submodule. This way, the repository stays small and only contains the code that you have written and not the entire RIOT source code.
-
-## Step 3: Creating our hello world program
-
-Now that we have added RIOT as a submodule to our project, we can start writing our hello world program. To do this, we create a new file called `main.c` in the `hello_world` directory. You can use any text editor to create this file. We will use Visual Studio Code in this example. To open Visual Studio Code in the directory, you can use the following command:
-
-```bash
-code .
-```
+<GitSetup />
 
 Now that Visual Studio Code is open, we create a new file called `main.c` and add the following code:
 
@@ -65,7 +19,7 @@ int main(void)
     ztimer_sleep(ZTIMER_SEC, 3);
 
     puts("Hello World!");
-    
+
     return 0;
 }
 ```
@@ -113,7 +67,7 @@ Congratulations! You have now created a new project with a simple hello world pr
 To build our program, we use the following command:
 
 ```bash
-BUILD_IN_DOCKER=1 make
+BUILD_IN_DOCKER=1 make flash
 ```
 
 :::note
@@ -135,7 +89,7 @@ If everything went well, you should see our hello world program printing "Hello 
 Hooraay! You have successfully created a new project with a simple hello world program.
 
 :::tip
-Before you push your project to a git hosting service such as Github, make sure to add a `.gitignore` file to your project to exclude unnecessary files from being tracked by git. 
+Before you push your project to a git hosting service such as Github, make sure to add a `.gitignore` file to your project to exclude unnecessary files from being tracked by git.
 
 For this project, a `.gitignore` file could look like this:
 
@@ -159,7 +113,7 @@ bin/
 In this tutorial, we have created a new project with a simple hello world program. We have added RIOT as a submodule to our project, created a hello world program, and built and run the program using the RIOT build system. You can now start building your own applications using RIOT and explore the vast possibilities that RIOT has to offer.
 
 :::note
-The source code for this tutorial can be found [HERE](https://github.com/AnnsAnns/RIOT-Tutorial-Repository/tree/01_hello_world). 
+The source code for this tutorial can be found [HERE](https://github.com/AnnsAnns/RIOT-Tutorial-Repository/tree/01_hello_world).
 
 If your project is not working as expected, you can compare your code with the code in this repository to see if you missed anything.
 :::
