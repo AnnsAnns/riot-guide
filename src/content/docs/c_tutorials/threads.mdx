@@ -24,7 +24,7 @@ void *my_first_thread(void *arg) {
 }
 ```
 
-![The thread function in Visual Studio Code](img/05_threads/01_thread_function.png)
+![The thread function in Visual Studio Code](img/threads/01_thread_function.png)
 
 This function takes a single argument, a pointer to any data, and prints "Hello, from the thread!" to the console. Now all that is left is to start the thread.
 
@@ -45,7 +45,7 @@ Lets define the stack as a global variable:
 char my_thread_stack[THREAD_STACKSIZE_MAIN];
 ```
 
-![The thread stack in Visual Studio Code](img/05_threads/02_stack.png)
+![The thread stack in Visual Studio Code](img/threads/02_stack.png)
 
 Lastly, we need to actually start the thread. Go into your `main` function and include the following code:
 
@@ -53,7 +53,7 @@ Lastly, we need to actually start the thread. Go into your `main` function and i
 int main(void) {
     thread_create(my_thread_stack, sizeof(my_thread_stack),
             THREAD_PRIORITY_MAIN - 1, 0, my_first_thread, NULL,
-            "My first thread"); 
+            "My first thread");
 
     puts("Hello, from the main thread!");
 }
@@ -74,16 +74,16 @@ Now that we have created our thread, we can build and run our program. Compile t
 
 If we now look into the terminal via `make term` we should see the message "Hello, from the main thread!" printed to the console followed by "Hello, from the thread!" printed by the thread.
 
-![The output](img/05_threads/03_output.png)
+![The output](img/threads/03_output.png)
 
 
 ### Conclusion
 
-Congratulations! You have successfully created and started a thread in RIOT. 
+Congratulations! You have successfully created and started a thread in RIOT.
 Threads are a powerful tool but remember that you are on a resource-constrained device, so don't create too many threads or use too much stack space.
 
 :::note
-The source code for this tutorial can be found [HERE](https://github.com/AnnsAnns/RIOT-Tutorial-Repository/tree/05_threads). 
+The source code for this tutorial can be found [HERE](https://github.com/AnnsAnns/RIOT-Tutorial-Repository/tree/threads).
 
 If your project is not working as expected, you can compare your code with the code in this repository to see if you missed anything.
 :::
