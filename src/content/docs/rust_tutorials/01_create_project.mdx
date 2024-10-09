@@ -6,9 +6,20 @@ description: "Create a new project with a simple hello world program"
 import GitSetup from '../../../components/gitsetup.mdx';
 import Contact from '../../../components/contact.astro';
 
+## Step 1: Create a new project
+
 <GitSetup />
 
-### Step 1: Initialize a New Project
+### Open VS Code
+
+Now that we have added RIOT as a submodule to our project, we can start writing our hello world program.
+You can use any text editor to create this file. We will use Visual Studio Code in this example. To open Visual Studio Code in the directory, you can use the following command:
+
+```bash
+code .
+```
+
+## Step 2: Initialize Rust
 
 Now that Visual Studio Code is open, we need to tell Rust what kind of project we want to create. We do this by running the following command in the terminal:
 
@@ -30,7 +41,7 @@ You should now have 3 new files within your project directory:
 
 ![The project structure](img/01_create_project/01_project_structure.png)
 
-### Step 2: Creating the Makefile
+## Step 3: Creating the Makefile
 
 Now that we have created our hello world program, we need to create a Makefile to build our program. The Makefile is a build automation tool that allows us to define how our program should be built. We create a new file called `Makefile` in the root directory of our project and add the following code:
 
@@ -67,7 +78,7 @@ Now RIOT knows that you want to build a Rust application and will use the `hello
 
 ![The Makefile in Visual Studio Code](img/01_create_project/02_makefile.png)
 
-### Step 3: Adjusting the Cargo.toml
+## Step 3: Adjusting the Cargo.toml
 
 Next, we need to adjust the `Cargo.toml` file to tell Cargo that we want to build for RIOT. Open the `Cargo.toml` file and replace its contents with the following:
 
@@ -97,7 +108,7 @@ The most important part here are the dependencies. As mentioned in [Rust in Riot
 
 The other configuration options are not that important for now, but you can read more about them in the [Cargo documentation](https://doc.rust-lang.org/cargo/reference/manifest.html).
 
-### Step 4: Writing the Hello World Program
+## Step 4: Writing the Hello World Program
 
 We are nearly done with setting up our project. The last thing we need to do is to write the actual hello world program. Open the `src/lib.rs` file and replace its contents with the following code:
 
@@ -132,7 +143,7 @@ fn main() {
 
 Congratulations! You have now created your first Rust program for RIOT. 🎉
 
-### Step 5: Building the Program
+## Step 5: Building the Program
 
 <Contact />
 
@@ -154,11 +165,11 @@ make term
 
 You should see the following output:
 
-```bash
+```
 You are running RIOT using Rust on a(n) native board.
 ```
 
-### Conclusion
+## Conclusion
 
 In this tutorial, you have learned how to create a new Rust project for RIOT and how to build and run it.
 You have also learned how to write a simple hello world program in Rust and how to use the `riot-wrappers` crate to interact with RIOT's C functions.

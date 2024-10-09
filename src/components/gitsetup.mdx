@@ -5,7 +5,7 @@ as described in the [Getting Started](/getting-started/installing/) guide.
 
 Now that we have played around with the examples and have a basic understanding of how to use RIOT, let's create a new project from scratch. We will create a simple hello world program that will print "Hello World!" to the console.
 
-## Step 1: Create a new project
+#### Step 1: Create a new git repository
 
 We start by creating a new git repository for our project. If you have never worked with git before, you can find a good introduction [here](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) or [here](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
 
@@ -25,7 +25,7 @@ git init
 
 Congratulations! You have now created a new empty git repository. In the next step, we will add RIOT as a submodule to our project.
 
-## Step 2: Add RIOT as a submodule
+#### Step 2: Add RIOT as a submodule
 
 We want to import RIOT as a submodule to our project. This will allow us to easily update to newer versions of RIOT and also allows us to easily share our project with others on GitHub, Gitlab, or any other git hosting service.
 
@@ -38,11 +38,3 @@ git submodule add https://github.com/RIOT-OS/RIOT.git
 ![Adding the submodule](img/gitsetup/02_riot_submodule.png)
 
 When looking into our directory via `ls`, we can see that a new directory called `RIOT` has been created. This directory contains the RIOT source code. If you were to push your project to a git hosting service, the `RIOT` directory would not be included in the repository. Instead, the repository would contain a reference to the commit of the RIOT repository that you have added as a submodule. This way, the repository stays small and only contains the code that you have written and not the entire RIOT source code.
-
-## Step 3: Creating our hello world program
-
-Now that we have added RIOT as a submodule to our project, we can start writing our hello world program. To do this, we create a new file called `main.c` in the `hello_world` directory. You can use any text editor to create this file. We will use Visual Studio Code in this example. To open Visual Studio Code in the directory, you can use the following command:
-
-```bash
-code .
-```
