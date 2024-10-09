@@ -75,6 +75,10 @@ BASELIBS += $(APPLICATION_RUST_MODULE).module
 include $(RIOTBASE)/Makefile.include
 ```
 
+:::note
+The `BUILD_IN_DOCKER=1` flag tells the build system to use the docker image provided by RIOT to build our program. This ensures that we have all the necessary dependencies to build our program. If you have already built RIOT on your system, you can omit this flag and the build system will use the toolchain installed on your system.
+:::
+
 Now RIOT knows that you want to build a Rust application and will use the `hello_world` crate as the main module.
 
 ![The Makefile in Visual Studio Code](img/create_project/02_makefile.png)
@@ -108,6 +112,50 @@ The most important part here are the dependencies. As mentioned in [Rust in Riot
 `riot-wrappers` is a crate that provides a set of wrappers around RIOT's C functions to make them usable from Rust in a safe way.
 
 The other configuration options are not that important for now, but you can read more about them in the [Cargo documentation](https://doc.rust-lang.org/cargo/reference/manifest.html).
+
+### IDE Setup
+
+Due to the way the RIOT Rust integration works, you need to amend your
+normal Rust setup in your IDE to make it work with RIOT. Luckily RIOT
+provides a small makefile command that will help you with that. Run the following command in your terminal:
+
+```bash
+make info-rust
+```
+
+The output will look something like this:
+
+```bash
+[ann@ann-laptop13 rust01-hello-world]$ make info-rust
+cargo version
+cargo 1.81.0 (2dbb1af80 2024-08-20)
+c2rust --version
+C2Rust 0.19.0
+To use this setup of Rust in an IDE, add these command line arguments to the `cargo check` or `rust-analyzer`:
+    --profile release
+and export these environment variables:
+    CARGO_BUILD_TARGET="thumbv7em-none-eabihf"
+    RIOT_COMPILE_COMMANDS_JSON="/home/ann/projects/exercises/rust01-hello-world/bin/feather-nrf52840-sense/cargo-compile-commands.json"
+    RIOTBUILD_CONFIG_HEADER_C="/home/ann/projects/exercises/rust01-hello-world/bin/feather-nrf52840-sense/riotbuild/riotbuild.h"
+You can also call cargo related commands with `make cargo-command CARGO_COMMAND="cargo check"`.
+Beware that the way command line arguments are passed in is not consistent across cargo commands, so adding `--profile release` or other flags from above as part of CARGO_COMMAND may be necessary.
+```
+
+In VSCode you can now go to the workspace settings `.vscode/settings.json`
+and add the following settings:
+
+```json
+{
+    "rust-analyzer.cargo.extraArgs": [
+        "--profile",
+        "release"
+    ],
+    "rust-analyzer.cargo.target": "thumbv7em-none-eabihf",
+}
+```
+
+and export the environment variables in your preferred way.
+You can also use the `make cargo-command` command to run cargo commands with the correct arguments.
 
 ## Step 4: Writing the Hello World Program
 
@@ -155,12 +203,8 @@ Congratulations! You have now created your first Rust program for RIOT. 🎉
 To build our program, we use the following command:
 
 ```bash
-BUILD_IN_DOCKER=1 make
+make
 ```
-
-:::note
-The `BUILD_IN_DOCKER=1` flag tells the build system to use the docker image provided by RIOT to build our program. This ensures that we have all the necessary dependencies to build our program. If you have already built RIOT on your system, you can omit this flag and the build system will use the toolchain installed on your system.
-:::
 
 After building the program, we can run it using the following command to start the RIOT shell:
 
