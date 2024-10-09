@@ -21,7 +21,7 @@ export default defineConfig({
             { label: "Introduction", slug: "index" },
             { label: "RIOT Vision", slug: "general/vision" },
             "general/community_process",
-            "general/structure"
+            "general/structure",
           ],
         },
         {
@@ -36,6 +36,7 @@ export default defineConfig({
                 "getting-started/installing",
                 "getting-started/flashing",
                 "getting-started/building_example",
+                "getting-started/finding_modules",
               ],
             },
             {
