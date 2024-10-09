@@ -10,7 +10,7 @@ import Contact from '../../../components/contact.astro';
 
 <GitSetup />
 
-### Open VS Code
+#### Open VS Code
 
 Now that we have added RIOT as a submodule to our project, we can start writing our hello world program.
 You can use any text editor to create this file. We will use Visual Studio Code in this example. To open Visual Studio Code in the directory, you can use the following command:
@@ -68,7 +68,8 @@ QUIET ?= 1
 
 # Tell the build system to use the Rust crate here
 FEATURES_REQUIRED += rust_target
-APPLICATION_RUST_MODULE = hello_world # Make sure this matches the name of the Rust crate
+# Make sure this matches the name of the Rust crate
+APPLICATION_RUST_MODULE = hello_world
 BASELIBS += $(APPLICATION_RUST_MODULE).module
 
 include $(RIOTBASE)/Makefile.include
@@ -169,7 +170,15 @@ You should see the following output:
 You are running RIOT using Rust on a(n) native board.
 ```
 
+![The Output in the Terminal](img/01_create_project/04_terminal_output.png)
+
 ## Conclusion
 
 In this tutorial, you have learned how to create a new Rust project for RIOT and how to build and run it.
 You have also learned how to write a simple hello world program in Rust and how to use the `riot-wrappers` crate to interact with RIOT's C functions.
+
+:::note
+The source code for this tutorial can be found [HERE](https://github.com/AnnsAnns/RIOT-Tutorial-Repository/tree/01_rust_hello_world).
+
+If your project is not working as expected, you can compare your code with the code in this repository to see if you missed anything.
+:::
