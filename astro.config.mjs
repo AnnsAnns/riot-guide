@@ -47,6 +47,7 @@ export default defineConfig({
                 "c_tutorials/shell",
                 "c_tutorials/threads",
                 "c_tutorials/gpio",
+                "c_tutorials/saul",
                 "c_tutorials/lvgl",
               ],
             },
