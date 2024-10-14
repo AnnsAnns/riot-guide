@@ -7,7 +7,7 @@ import Contact from '../../../components/contact.astro';
 
 Threads allow you to run multiple tasks concurrently in your application.
 
-### Step 1: Creating a Thread Function
+## Step 1: Creating a Thread Function
 
 To create a thread in RIOT, you need to define a function that implements the thread and then start the thread.
 The signature of the thread function should be `void *thread_function_name(void *arg)`. The argument `arg` is a pointer to any data that you want to pass to the thread.
@@ -32,7 +32,7 @@ This function takes a single argument, a pointer to any data, and prints "Hello,
 You need to specify `void *arg` even if you don't use it, otherwise the compiler will throw an error.
 :::
 
-### Step 2: Starting the Thread
+## Step 2: Starting the Thread
 
 To start a thread we need two things: a stack for the thread and a call to `thread_create`.
 
@@ -68,7 +68,7 @@ int main(void) {
 - `NULL`: The argument for the thread function
 - `"My first thread"`: The name of the thread
 
-### Step 3: Building and Running the Program
+## Step 3: Building and Running the Program
 
 Now that we have created our thread, we can build and run our program. Compile the program using `make` and flash it to your board using `make flash`.
 
@@ -77,7 +77,7 @@ If we now look into the terminal via `make term` we should see the message "Hell
 ![The output](img/threads/03_output.png)
 
 
-### Conclusion
+## Conclusion
 
 Congratulations! You have successfully created and started a thread in RIOT.
 Threads are a powerful tool but remember that you are on a resource-constrained device, so don't create too many threads or use too much stack space.
