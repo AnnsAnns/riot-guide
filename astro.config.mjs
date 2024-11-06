@@ -5,7 +5,7 @@ import starlightImageZoom from "starlight-image-zoom";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://riot.annsann.eu",
+  site: "https://guide.riot.annsann.eu",
   integrations: [
     starlight({
       title: "Riot Documentation",
@@ -15,6 +15,10 @@ export default defineConfig({
         matrix: "https://matrix.to/#/#riot-os:matrix.org",
       },
       sidebar: [
+        {
+          label: "⚠️ There is no support for this site, it is not official, nor is it maintained. You have been warned. ⚠️",
+          link: "#NOTSUPPORTED",
+        },
         {
           label: "RIOT in a Nutshell",
           items: [
