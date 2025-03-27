@@ -16,7 +16,7 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "⚠️ There is no support for this site, it is not official, nor is it maintained. You have been warned. ⚠️",
+          label: "⚠️ There is no official support for this site and still experimental ⚠️",
           link: "#NOTSUPPORTED",
         },
         {
